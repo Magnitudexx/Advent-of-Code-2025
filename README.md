@@ -2,7 +2,9 @@
 
 ## Progress
 
-##Try for yourself
+## Try for yourself
+
 ``
 pip install -e .
 python main.py {day}
+``
