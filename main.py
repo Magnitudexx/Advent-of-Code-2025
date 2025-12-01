@@ -1,8 +1,5 @@
 
----
-
 # ▶️ main.py (Runner CLI)
-```python
 import importlib
 from rich import print
 

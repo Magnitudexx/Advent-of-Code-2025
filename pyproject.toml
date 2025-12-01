@@ -1,13 +1,16 @@
 [project]
-name = "aoc-2024"
+name = "aoc-2025"
 version = "0.1.0"
-description = "Advent of Code 2024 solutions in Python"
+description = "Advent of Code 2025 solutions in Python"
 readme = "README.md"
 requires-python = ">=3.10"
 
 dependencies = [
     "rich",        # pretty printing
     "pytest",      # testing
+    "pyright",      #LSP
+
+
 ]
 [tool.setuptools]
 packages = ["aoc"]
