@@ -34,21 +34,20 @@ def part2(data):
             idx2 = 1
             width = 1
             pattern = s[0]
-            while width <= l//2:
-                if s[idx1:idx1+width] == s[idx2:idx2+width]:
-                    #idx2 = width
+            while width <= l // 2:
+                if s[idx1 : idx1 + width] == s[idx2 : idx2 + width]:
+                    # idx2 = width
                     pattern = s[0:width]
                     width += 1
-                elif (l // len(pattern)) * pattern == s :
+                elif (l // len(pattern)) * pattern == s:
                     print(num)
                     ids.append(num)
                 else:
                     width += 1
                     idx2 = width
-            if (l // len(pattern)) * pattern == s :
+            if (l // len(pattern)) * pattern == s:
                 print(num)
                 ids.append(num)
-
 
 
 if __name__ == "__main__":
