@@ -1,6 +1,9 @@
 name: Auto-format Python code
 
-on: [push]
+on:
+  push:
+    branches:
+      - main   # Only run when commits land on main (e.g., after PR merge)
 
 permissions:
   contents: write
@@ -23,4 +26,3 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Apply formatting"
-
