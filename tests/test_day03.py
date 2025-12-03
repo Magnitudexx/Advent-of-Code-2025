@@ -7,6 +7,8 @@ sample = """987654321111111
 818181911112111"""
 
 data = sample.strip().splitlines()
+
+
 def test1():
     assert part1(data) == 357
 

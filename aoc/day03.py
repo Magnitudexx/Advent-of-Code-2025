@@ -9,10 +9,10 @@ def parse_input(path: str) -> list[str]:
 def part1(data):
     b = []
     for bank in data:
-        first:int = 0
-        sec:int = 0
-        last = len(bank) -1
-        for i,num in enumerate(bank):
+        first: int = 0
+        sec: int = 0
+        last = len(bank) - 1
+        for i, num in enumerate(bank):
             if first == 9 and sec == 9:
                 break
             elif int(num) > first and i != last:
@@ -20,19 +20,16 @@ def part1(data):
                 sec = 0
             elif int(num) > sec:
                 sec = int(num)
-        
+
         b.append(10 * first + sec)
     return sum(b)
-
-        
-
 
 
 def part2(data):
     b = []
     for bank in data:
-        last = len(bank) -1
-        for i,num in enumerate(bank):
+        last = len(bank) - 1
+        for i, num in enumerate(bank):
             if first == 9 and sec == 9:
                 break
             elif int(num) > first and i != last:
@@ -40,9 +37,10 @@ def part2(data):
                 sec = 0
             elif int(num) > sec:
                 sec = int(num)
-        
+
         b.append(10 * first + sec)
     return sum(b)
+
 
 if __name__ == "__main__":
     data = parse_input("input.txt")
