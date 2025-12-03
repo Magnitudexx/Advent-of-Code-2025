@@ -14,4 +14,4 @@ def test1():
 
 
 def test2():
-    pass
+    assert part2(data) == 3121910778619
