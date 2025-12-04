@@ -41,7 +41,24 @@ def part1(data):
 
  
 def part2(data):
-    pass
+    lst:list[list[str]] = [list(s) for s in data]
+    arr:NDArray = np.array(lst, dtype=str)
+    col, row = arr.shape
+    full_count = 0
+    while True:
+        count = 0
+        for i in range(col):
+            for j in range(row):
+                if arr[i,j] == '@':
+                    neighbors = get_neighbors(arr,i,j)
+                    condition = neighbors == '@'
+                    if np.extract(condition,neighbors).size < 4:
+                        count += 1
+                        arr[i,j] = 'x'
+        if count == 0:
+            break
+        full_count += count
+    return full_count
 
 
 if __name__ == "__main__":
