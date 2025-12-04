@@ -3,7 +3,9 @@ import numpy as np
 from numpy.typing import NDArray
 
 T = TypeVar("T", bound=np.generic)
-def get_neighbors(arr:NDArray[T], r:int, c:int, include_self=False) -> NDArray[T]:
+
+
+def get_neighbors(arr: NDArray[T], r: int, c: int, include_self=False) -> NDArray[T]:
     # Determine slice bounds, staying inside array limits
     r_min = max(0, r - 1)
     r_max = min(arr.shape[0], r + 2)
