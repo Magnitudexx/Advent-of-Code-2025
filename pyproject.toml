@@ -9,6 +9,7 @@ dependencies = [
     "rich",        # pretty printing
     "pytest",      # testing
     "pyright",      #LSP
+    "numpy",
 
 
 ]
