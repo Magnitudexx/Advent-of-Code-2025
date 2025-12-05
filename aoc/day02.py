@@ -28,15 +28,15 @@ def part2(data):
     for span in sp_data:
         le, he = tuple(span.split("-"))
         for num in range(int(le), int(he) + 1):
-            s = str(num) #12
+            s = str(num)  # 12
             l = len(s)
             idx = 0
             width = 1
             broken = False
             while width <= l // 2:
                 pattern = s[idx:width]
-                for i in range(width,l,width):
-                    if s[i:i+width] != pattern:
+                for i in range(width, l, width):
+                    if s[i : i + width] != pattern:
                         broken = True
                         break
 
