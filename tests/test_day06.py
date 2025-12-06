@@ -1,4 +1,4 @@
-from aoc.day06 import part1, part2, parse_input
+from aoc.day06 import part1, part2
 
 
 sample ="""123 328  51 64 
@@ -13,4 +13,4 @@ def test1():
 
 
 def test2():
-    pass
+    assert part2(data) == 3263827
