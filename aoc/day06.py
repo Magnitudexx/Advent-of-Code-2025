@@ -11,7 +11,7 @@ def parse_input(path: str) -> list[str]:
 
 
 def part1(data):
-    ops = re.findall(r"[+*]",data[-1])
+    ops = re.findall(r"[+*]", data[-1])
     data = data[:-1]
     num_list = [re.findall(r"[0-9]+", l) for l in data]
     arr: NDArray[np.str_] = np.array(num_list, dtype=str)
@@ -19,7 +19,7 @@ def part1(data):
     rows, cols = arr.shape
     total = 0
     for i, op in enumerate(ops):
-        col = i_arr[:,i]
+        col = i_arr[:, i]
 
         match op:
             case "+":
@@ -29,21 +29,22 @@ def part1(data):
 
     return total
 
+
 def part2(data):
-    ops = re.findall(r"[+*][ ]+",data[-1])
+    ops = re.findall(r"[+*][ ]+", data[-1])
     data = data[:-1]
     num_list = [list(l) for l in data]
     arr: NDArray[np.str_] = np.array(num_list, dtype=str)
     rows, cols = arr.shape
     total = 0
-    idx:int = 0
+    idx: int = 0
     for op in ops:
-        sub_arr = arr[:,idx:idx +len(op)]
+        sub_arr = arr[:, idx : idx + len(op)]
         l_sub = len(sub_arr)
         nums = []
         for i in range(len(op)):
-            s = "".join(list(sub_arr[:,i])).strip()
-            if s != '':
+            s = "".join(list(sub_arr[:, i])).strip()
+            if s != "":
                 nums.append(int(s))
 
         nums = np.array(nums)
