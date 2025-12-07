@@ -1,7 +1,5 @@
-import re
 import numpy as np
 
-from aoc.utils import get_neighbors
 from numpy.typing import NDArray
 
 
@@ -20,7 +18,6 @@ def part1(data:list[str]):
         np_line:NDArray[np.str_] = np.array(list(line))
         splitter_idxs = np.where(np_line == '^')[0]
 
-        tmp_idxs:set[int] = set([])
         if splitter_idxs.size > 0:
             for idx in splitter_idxs:
                 if idx in idxs:
@@ -30,27 +27,26 @@ def part1(data:list[str]):
 
     return total
 
-import heapq
+from collections import defaultdict
 def part2(data):
-    start_col = data[0].index('S')
-    arr = np.array([list(line) for line in data])
-    start = (0, start_col)
+    start = data[0].index('S')
+    data = data[1:]
 
-    q:list[tuple[int,int]] = [start]
-    heapq.heapify(q)
-    total = 0
-    terminated = True
-    rows, cols = arr.shape
-    while len(q) > 0:
-        row, col = heapq.heappop(q)
-        c:NDArray = arr[row+1:,col]
-        if '^' in c:
-            idx = list(c.flatten()).index('^')
-            heapq.heappush(q,(row+idx,col-1))
-            heapq.heappush(q,(row+idx,col+1))
-        else:
-            total += 1
-    return total
+    idxs:dict[int,int] = defaultdict(int)
+    idxs[start] = 1
+    for line in data:
+        np_line:NDArray[np.str_] = np.array(list(line))
+        splitter_idxs = np.where(np_line == '^')[0]
+
+        if splitter_idxs.size > 0:
+            for idx in splitter_idxs:
+                if idx in idxs:
+                    idxs[idx-1] += idxs[idx]
+                    idxs[idx+1] += idxs[idx]
+            for idx in splitter_idxs:
+                idxs[idx] = 0
+
+    return sum(idxs.values())
 
 
 if __name__ == "__main__":
